@@ -43,6 +43,11 @@
           <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
           <li class="nav-section">Capítulos</li>
           <li class="nav-item"><a href="chapter-1.html" class="nav-link active"><span class="ch-num">1</span> Fundamentos Fisiológicos</a></li>
+          <li class="nav-item"><a href="chapter-2.html" class="nav-link"><span class="ch-num">2</span> Anatomía de las Derivaciones</a></li>
+          <li class="nav-item"><a href="chapter-3.html" class="nav-link"><span class="ch-num">3</span> Componentes del Trazado</a></li>
+          <li class="nav-item"><a href="chapter-4.html" class="nav-link"><span class="ch-num">4</span> Metodología de Interpretación</a></li>
+          <li class="nav-item"><a href="chapter-5.html" class="nav-link"><span class="ch-num">5</span> Patologías Básicas</a></li>
+          <li class="nav-item"><a href="chapter-6.html" class="nav-link"><span class="ch-num">6</span> Talleres de Práctica</a></li>
           <li class="nav-section">Simuladores</li>
           <li class="nav-item">
             <a href="ecg-monitor.html" class="nav-link">
@@ -269,6 +274,7 @@
             <button class="btn-retry" onclick="QuizEngine.showCharacterSheet()" style="background:#1a0f40;border-color:#7c3aed"><i class="fas fa-scroll"></i> Mi Ficha de Personaje</button>
             <button class="btn-retry" onclick="QuizEngine.exportarCSV()" style="background:#10692a"><i class="fas fa-file-csv"></i> Exportar CSV</button>
             <a href="chapter-1.html" class="btn-back"><i class="fas fa-book"></i> Volver al capítulo</a>
+            <a href="chapter-2.html" class="btn-back" style="border-color:#22c55e;color:#22c55e"><i class="fas fa-arrow-right"></i> Capítulo 2</a>
           </div>
         </div>
 

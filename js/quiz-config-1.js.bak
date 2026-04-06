@@ -25,7 +25,7 @@ var QUIZ_BadgesKey = 'ecg_badges_cap1';
 
 // ── LINKS DE NAVEGACIÓN ──
 var QUIZ_LinkCapitulo = 'chapter-1.html';
-var QUIZ_LinkSiguiente = 'index.html';
+var QUIZ_LinkSiguiente = 'chapter-2.html';
 var QUIZ_LinkSiguienteTexto = 'Capítulo 2';
 
 // ── BANCO DE PREGUNTAS (copiado íntegro) ──

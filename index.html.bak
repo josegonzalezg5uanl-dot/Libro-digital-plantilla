@@ -65,14 +65,29 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="chapter-2.html" class="nav-link" data-page="ch2">
+              <span class="ch-num">2</span> Anatomía de las Derivaciones
+            </a>
           </li>
           <li class="nav-item">
+            <a href="chapter-3.html" class="nav-link" data-page="ch3">
+              <span class="ch-num">3</span> Componentes del Trazado Normal
+            </a>
           </li>
           <li class="nav-item">
+            <a href="chapter-4.html" class="nav-link" data-page="ch4">
+              <span class="ch-num">4</span> Metodología de Interpretación
+            </a>
           </li>
           <li class="nav-item">
+            <a href="chapter-5.html" class="nav-link" data-page="ch5">
+              <span class="ch-num">5</span> Patologías Básicas y Patrones
+            </a>
           </li>
           <li class="nav-item">
+            <a href="chapter-6.html" class="nav-link" data-page="ch6">
+              <span class="ch-num">6</span> Talleres de Práctica
+            </a>
           </li>
           <li class="nav-section">Simuladores</li>
           <li class="nav-item">
@@ -235,6 +250,9 @@
               <a href="chapter-1.html" class="btn-primary">
                 <i class="fas fa-play"></i> Comenzar a leer
               </a>
+              <a href="chapter-6.html" class="btn-secondary">
+                <i class="fas fa-flask"></i> Talleres
+              </a>
             </div>
           </div>
 
@@ -251,6 +269,56 @@
                 <span class="card-num">Capítulo 1</span>
                 <h3>Fundamentos Fisiológicos y Técnicos</h3>
                 <p>Potencial de acción, sistema de conducción, vectores cardíacos y papel de registro.</p>
+              </div>
+              <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+            <a href="chapter-2.html" class="card">
+              <div class="card-icon" style="background:#e8f5e9;color:#2e7d32"><i class="fas fa-broadcast-tower"></i></div>
+              <div class="card-body">
+                <span class="card-num">Capítulo 2</span>
+                <h3>Anatomía de las Derivaciones</h3>
+                <p>Plano frontal, plano horizontal, triángulo de Einthoven y sistema hexaxial.</p>
+              </div>
+              <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+            <a href="chapter-3.html" class="card">
+              <div class="card-icon" style="background:#fff3e0;color:#e65100"><i class="fas fa-wave-square"></i></div>
+              <div class="card-body">
+                <span class="card-num">Capítulo 3</span>
+                <h3>Componentes del Trazado Normal</h3>
+                <p>Ondas P, QRS, T · Intervalos PR, QT · Segmentos ST y PR.</p>
+              </div>
+              <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+            <a href="chapter-4.html" class="card">
+              <div class="card-icon" style="background:#f3e5f5;color:#6a1b9a"><i class="fas fa-clipboard-list"></i></div>
+              <div class="card-body">
+                <span class="card-num">Capítulo 4</span>
+                <h3>Metodología de Interpretación</h3>
+                <p>Frecuencia, ritmo, eje eléctrico y análisis morfológico sistemático.</p>
+              </div>
+              <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+            <a href="chapter-5.html" class="card">
+              <div class="card-icon" style="background:#fce4ec;color:#b71c1c"><i class="fas fa-exclamation-triangle"></i></div>
+              <div class="card-body">
+                <span class="card-num">Capítulo 5</span>
+                <h3>Patologías Básicas y Patrones</h3>
+                <p>Hipertrofias, bloqueos de rama, arritmias, isquemia e infarto.</p>
+              </div>
+              <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+            <a href="chapter-6.html" class="card">
+              <div class="card-icon" style="background:#e0f7fa;color:#006064"><i class="fas fa-flask"></i></div>
+              <div class="card-body">
+                <span class="card-num">Capítulo 6</span>
+                <h3>Talleres de Práctica</h3>
+                <p>Lectura de trazos reales y algoritmos de decisión rápida para urgencias.</p>
               </div>
               <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
             </a>

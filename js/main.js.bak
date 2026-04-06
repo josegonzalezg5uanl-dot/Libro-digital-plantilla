@@ -65,6 +65,16 @@ const searchIndex = [
     content: 'Guía de Electrocardiografía libro digital medicina ECG' },
   { title: 'Cap. 1 – Fundamentos Fisiológicos',  url: 'chapter-1.html',
     content: 'potencial de acción cardíaco despolarización repolarización nodo sinusal AV His Purkinje vectores cardíacos papel registro velocidad amplitud electrofisiología' },
+  { title: 'Cap. 2 – Anatomía de las Derivaciones', url: 'chapter-2.html',
+    content: 'plano frontal horizontal bipolares I II III unipolares aVR aVL aVF precordiales V1 V2 V3 V4 V5 V6 triángulo Einthoven hexaxial Bailey electrodos' },
+  { title: 'Cap. 3 – Componentes del Trazado Normal', url: 'chapter-3.html',
+    content: 'onda P complejo QRS onda T intervalo PR QT segmento ST auricular ventricular repolarización conducción isoeléctrica morfología normal' },
+  { title: 'Cap. 4 – Metodología de Interpretación', url: 'chapter-4.html',
+    content: 'frecuencia cardíaca ritmo sinusal eje eléctrico regla 300 1500 morfología sistemática bradicardia taquicardia análisis QRS frontal' },
+  { title: 'Cap. 5 – Patologías Básicas y Patrones', url: 'chapter-5.html',
+    content: 'hipertrofia auricular ventricular bloqueo rama derecha BRD izquierda BRI arritmia fibrilación flutter extrasístoles isquemia lesión infarto IAMCEST ST elevación descenso onda Q potasio calcio electrolitos' },
+  { title: 'Cap. 6 – Talleres de Práctica', url: 'chapter-6.html',
+    content: 'talleres práctica trazos reales algoritmos urgencias IAMCEST decisión rápida ejercicios casos clínicos quiz' },
 ];
 
 const searchInput   = document.getElementById('searchInput');

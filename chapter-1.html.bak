@@ -42,6 +42,11 @@
           <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
           <li class="nav-section">Capítulos</li>
           <li class="nav-item"><a href="chapter-1.html" class="nav-link active"><span class="ch-num">1</span> Fundamentos Fisiológicos y Técnicos</a></li>
+          <li class="nav-item"><a href="chapter-2.html" class="nav-link"><span class="ch-num">2</span> Anatomía de las Derivaciones</a></li>
+          <li class="nav-item"><a href="chapter-3.html" class="nav-link"><span class="ch-num">3</span> Componentes del Trazado Normal</a></li>
+          <li class="nav-item"><a href="chapter-4.html" class="nav-link"><span class="ch-num">4</span> Metodología de Interpretación</a></li>
+          <li class="nav-item"><a href="chapter-5.html" class="nav-link"><span class="ch-num">5</span> Patologías Básicas y Patrones</a></li>
+          <li class="nav-item"><a href="chapter-6.html" class="nav-link"><span class="ch-num">6</span> Talleres de Práctica</a></li>
           <li class="nav-section">Aprendizaje</li>
           <li class="nav-item">
             <a href="autopercepcion.html" class="nav-link">
@@ -252,6 +257,10 @@
               <a href="index.html" class="ch-nav-btn">
                 <i class="fas fa-chevron-left"></i>
                 <div><span class="nav-label">Anterior</span><span class="nav-title">Inicio</span></div>
+              </a>
+              <a href="chapter-2.html" class="ch-nav-btn">
+                <div><span class="nav-label">Siguiente</span><span class="nav-title">Anatomía de las Derivaciones</span></div>
+                <i class="fas fa-chevron-right"></i>
               </a>
             </div>
           </article>
