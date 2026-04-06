@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guía de Electrocardiografía</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-left">
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+      </button>
+      <a href="index.html" class="site-logo">
+        <i class="fas fa-heartbeat"></i>
+        <span>Guía de ECG</span>
+      </a>
+    </div>
+    <div class="header-center">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Buscar en el libro..." autocomplete="off"/>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+    <div class="header-right">
+      <button class="btn-send-session" id="btnSendSession" onclick="openSendModal()" title="Enviar registro de sesión al profesor">
+        <i class="fas fa-paper-plane"></i><span class="btn-send-label">Enviar</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" title="Cambiar tema">
+        <i class="fas fa-moon"></i>
+      </button>
+      <a href="https://github.com/dmccreary/i-book-v1" target="_blank" class="gh-link" title="Ver en GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- OVERLAY para móvil -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- LAYOUT PRINCIPAL -->
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-title">Contenido</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active" data-page="home">
+              <i class="fas fa-home"></i> Inicio
+            </a>
+          </li>
+          <li class="nav-section">Capítulos</li>
+
+          <li class="nav-item">
+            <a href="chapter-1.html" class="nav-link" data-page="ch1">
+              <span class="ch-num">1</span> Fundamentos Fisiológicos y Técnicos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="chapter-2.html" class="nav-link" data-page="ch2">
+              <span class="ch-num">2</span> Anatomía de las Derivaciones
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="chapter-3.html" class="nav-link" data-page="ch3">
+              <span class="ch-num">3</span> Componentes del Trazado Normal
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="chapter-4.html" class="nav-link" data-page="ch4">
+              <span class="ch-num">4</span> Metodología de Interpretación
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="chapter-5.html" class="nav-link" data-page="ch5">
+              <span class="ch-num">5</span> Patologías Básicas y Patrones
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="chapter-6.html" class="nav-link" data-page="ch6">
+              <span class="ch-num">6</span> Talleres de Práctica
+            </a>
+          </li>
+          <li class="nav-section">Simuladores</li>
+          <li class="nav-item">
+            <a href="ecg-monitor.html" class="nav-link" data-page="monitor">
+              <i class="fas fa-heartbeat" style="color:#e53935"></i> Monitor ECG
+            </a>
+          </li>
+          <li class="nav-section">Aprendizaje</li>
+          <li class="nav-item">
+            <a href="autopercepcion.html" class="nav-link" data-page="autopercepcion">
+              <i class="fas fa-brain" style="color:#a78bfa"></i> Autopercepción
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content" id="mainContent">
+      <div class="content-wrapper">
+
+        <!-- HERO -->
+        <div class="hero hero-split">
+
+          <!-- LADO IZQUIERDO: Animación ECG -->
+          <div class="hero-ecg-side">
+            <div class="ecg-screen">
+              <div class="ecg-screen-inner">
+                <!-- Cuadrícula de fondo -->
+                <svg class="ecg-grid-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                  <defs>
+                    <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+                      <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,230,118,0.12)" stroke-width="0.5"/>
+                    </pattern>
+                    <pattern id="bigGrid" width="50" height="50" patternUnits="userSpaceOnUse">
+                      <rect width="50" height="50" fill="url(#smallGrid)"/>
+                      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(0,230,118,0.25)" stroke-width="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#bigGrid)"/>
+                </svg>
+
+                <!-- Trazo ECG animado con SVG path -->
+                <svg class="ecg-trace-svg" viewBox="0 0 600 160" preserveAspectRatio="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <filter id="glow">
+                      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                      <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                    <!-- Gradiente para efecto de "barrido" -->
+                    <linearGradient id="traceGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%"   stop-color="#00e676" stop-opacity="0"/>
+                      <stop offset="60%"  stop-color="#00e676" stop-opacity="0.6"/>
+                      <stop offset="100%" stop-color="#00e676" stop-opacity="1"/>
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Trazo principal: línea plana → P → PR → QRS → ST → T → línea plana → repite -->
+                  <!-- Ciclo 1 -->
+                  <path class="ecg-path" filter="url(#glow)"
+                    d="
+                      M 0,80
+                      L 30,80
+                      C 38,80 40,72 44,72 C 48,72 50,80 58,80
+                      L 68,80
+                      L 70,78 L 72,82 L 74,28 L 76,100 L 78,80
+                      L 88,80
+                      C 96,80 100,68 108,68 C 116,68 120,80 130,80
+                      L 160,80
+
+                      L 190,80
+                      C 198,80 200,72 204,72 C 208,72 210,80 218,80
+                      L 228,80
+                      L 230,78 L 232,82 L 234,28 L 236,100 L 238,80
+                      L 248,80
+                      C 256,80 260,68 268,68 C 276,68 280,80 290,80
+                      L 320,80
+
+                      L 350,80
+                      C 358,80 360,72 364,72 C 368,72 370,80 378,80
+                      L 388,80
+                      L 390,78 L 392,82 L 394,28 L 396,100 L 398,80
+                      L 408,80
+                      C 416,80 420,68 428,68 C 436,68 440,80 450,80
+                      L 480,80
+
+                      L 510,80
+                      C 518,80 520,72 524,72 C 528,72 530,80 538,80
+                      L 548,80
+                      L 550,78 L 552,82 L 554,28 L 556,100 L 558,80
+                      L 568,80
+                      C 576,80 580,68 588,68 C 596,68 600,80 600,80
+                    "
+                  />
+
+                  <!-- Trazo sombra/eco más tenue detrás -->
+                  <path class="ecg-path-echo"
+                    d="
+                      M 0,80
+                      L 30,80
+                      C 38,80 40,72 44,72 C 48,72 50,80 58,80
+                      L 68,80
+                      L 70,78 L 72,82 L 74,28 L 76,100 L 78,80
+                      L 88,80
+                      C 96,80 100,68 108,68 C 116,68 120,80 130,80
+                      L 160,80
+
+                      L 190,80
+                      C 198,80 200,72 204,72 C 208,72 210,80 218,80
+                      L 228,80
+                      L 230,78 L 232,82 L 234,28 L 236,100 L 238,80
+                      L 248,80
+                      C 256,80 260,68 268,68 C 276,68 280,80 290,80
+                      L 320,80
+
+                      L 350,80
+                      C 358,80 360,72 364,72 C 368,72 370,80 378,80
+                      L 388,80
+                      L 390,78 L 392,82 L 394,28 L 396,100 L 398,80
+                      L 408,80
+                      C 416,80 420,68 428,68 C 436,68 440,80 450,80
+                      L 480,80
+
+                      L 510,80
+                      C 518,80 520,72 524,72 C 528,72 530,80 538,80
+                      L 548,80
+                      L 550,78 L 552,82 L 554,28 L 556,100 L 558,80
+                      L 568,80
+                      C 576,80 580,68 588,68 C 596,68 600,80 600,80
+                    "
+                  />
+                </svg>
+
+                <!-- Punto brillante que va recorriendo el trazo -->
+                <div class="ecg-cursor-dot"></div>
+
+                <!-- Info del monitor -->
+                <div class="ecg-screen-info">
+                  <span class="ecg-info-tag">DER. II</span>
+                  <span class="ecg-info-bpm"><span class="bpm-num">72</span> <span class="bpm-unit">lpm</span></span>
+                  <span class="ecg-info-tag ecg-live"><span class="live-dot"></span>EN VIVO</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LADO DERECHO: Texto -->
+          <div class="hero-text-side">
+            <h1 class="hero-title">Guía de Electrocardiografía</h1>
+            <p class="hero-subtitle">
+              Desde los fundamentos fisiológicos hasta el reconocimiento de patrones clínicos.
+              Una guía sistemática y práctica para interpretar el ECG con confianza.
+            </p>
+            <div class="hero-actions">
+              <a href="chapter-1.html" class="btn-primary">
+                <i class="fas fa-play"></i> Comenzar a leer
+              </a>
+              <a href="chapter-6.html" class="btn-secondary">
+                <i class="fas fa-flask"></i> Talleres
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- TARJETAS DE CAPÍTULOS -->
+        <section class="chapters-grid">
+          <h2 class="section-title"><i class="fas fa-list"></i> Contenido del libro</h2>
+          <div class="grid">
+
+            <a href="chapter-1.html" class="card">
+              <div class="card-icon" style="background:#e3f2fd;color:#1565c0"><i class="fas fa-bolt"></i></div>
+              <div class="card-body">
+                <span class="card-num">Capítulo 1</span>
+                <h3>Fundamentos Fisiológicos y Técnicos</h3>
+                <p>Potencial de acción, sistema de conducción, vectores cardíacos y papel de registro.</p>
+              </div>
+              <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+            <a href="chapter-2.html" class="card">
+              <div class="card-icon" style="background:#e8f5e9;color:#2e7d32"><i class="fas fa-broadcast-tower"></i></div>
+              <div class="card-body">
+                <span class="card-num">Capítulo 2</span>
+                <h3>Anatomía de las Derivaciones</h3>
+                <p>Plano frontal, plano horizontal, triángulo de Einthoven y sistema hexaxial.</p>
+              </div>
+              <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+            <a href="chapter-3.html" class="card">
+              <div class="card-icon" style="background:#fff3e0;color:#e65100"><i class="fas fa-wave-square"></i></div>
+              <div class="card-body">
+                <span class="card-num">Capítulo 3</span>
+                <h3>Componentes del Trazado Normal</h3>
+                <p>Ondas P, QRS, T · Intervalos PR, QT · Segmentos ST y PR.</p>
+              </div>
+              <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+            <a href="chapter-4.html" class="card">
+              <div class="card-icon" style="background:#f3e5f5;color:#6a1b9a"><i class="fas fa-clipboard-list"></i></div>
+              <div class="card-body">
+                <span class="card-num">Capítulo 4</span>
+                <h3>Metodología de Interpretación</h3>
+                <p>Frecuencia, ritmo, eje eléctrico y análisis morfológico sistemático.</p>
+              </div>
+              <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+            <a href="chapter-5.html" class="card">
+              <div class="card-icon" style="background:#fce4ec;color:#b71c1c"><i class="fas fa-exclamation-triangle"></i></div>
+              <div class="card-body">
+                <span class="card-num">Capítulo 5</span>
+                <h3>Patologías Básicas y Patrones</h3>
+                <p>Hipertrofias, bloqueos de rama, arritmias, isquemia e infarto.</p>
+              </div>
+              <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+            <a href="chapter-6.html" class="card">
+              <div class="card-icon" style="background:#e0f7fa;color:#006064"><i class="fas fa-flask"></i></div>
+              <div class="card-body">
+                <span class="card-num">Capítulo 6</span>
+                <h3>Talleres de Práctica</h3>
+                <p>Lectura de trazos reales y algoritmos de decisión rápida para urgencias.</p>
+              </div>
+              <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+          </div>
+        </section>
+
+        <!-- ACERCA DE -->
+        <section class="about-section">
+          <div class="about-card">
+            <i class="fas fa-info-circle about-icon"></i>
+            <div>
+              <h3>Acerca de esta guía</h3>
+              <p>Esta guía está diseñada para estudiantes de medicina, internos y residentes que desean aprender a interpretar el electrocardiograma de forma sistemática. El contenido va desde los fundamentos electrofisiológicos hasta el reconocimiento de patrones en situaciones de urgencia.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="site-footer-bottom">
+        <p>Guía de Electrocardiografía &mdash; Libro Digital &copy; 2025</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="js/session.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
